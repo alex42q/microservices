@@ -5,13 +5,10 @@ const db = require("./Config/db")
 const cors = require("cors");
 const cookieParser = require('cookie-parser')
 const bodyParser = require("body-parser");
-const session = require("express-session")
-const MongoDBStore = require("connect-mongodb-session")(session);
 const PORT = process.env.PORT
 
-
 app.use(cors({
-    origin:["http://localhost:3000", "http://localhost:5003"],
+    origin:"http://localhost:3000",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials:true
 }))
@@ -21,10 +18,10 @@ app.use(bodyParser.urlencoded({ extended:false }))
 app.use(cookieParser())
 
 //Import the route
-const CategoriesRouter = require("./Routes/CreateCategoriesRouter");
+const HomesRouter = require("./Routes/HomesRouter");
 
 //Use the routes
-app.use(CategoriesRouter);
+app.use(HomesRouter);
 
 app.listen(PORT, function(err){
     if(err){

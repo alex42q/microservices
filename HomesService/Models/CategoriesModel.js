@@ -8,7 +8,8 @@ const CategoriesSchema = new mongoose.Schema({
         type:String
     },
     homes:[{
-        type:mongoose.Schema.Types.ObjectId
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"homes"
     }]
 })
 
