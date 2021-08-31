@@ -1,71 +1,71 @@
 version: '3.7'
 
 services:
-  AdminService:
+  adminservice:
     build:
       context: ./AdminService
       dockerfile: Dockerfile
-    image: AdminService
+    image: adminservice
     container_name: AdminService-server
     command: npm start
     volumes:
-      - ./AdminService/:/usr/src/app
+      - ./adminservice/:/usr/src/app
       - /usr/src/app/node_modules
     ports:
       - "5003:5003"
     networks:
       - app-network
-  AuthService:
+  authservice:
     build:
       context: ./AuthService
       dockerfile: Dockerfile
-    image: AuthService
+    image: authservice
     container_name: AuthService
     command: npm start
     volumes:
-      - ./AuthService/:/usr/app
+      - ./authservice/:/usr/src/app
       - /usr/app/node_modules
     ports:
       - "5000:5000"
     networks:
       - app-network
-  CategoriesService:
+  categoriesservice:
     build:
         context: ./CategoriesService
         dockerfile: Dockerfile
-    image: CategoriesService
+    image: categoriesservice
     container_name: CategoriesService
     command: npm start
     volumes: 
-        - ./CategoriesService/:usr/src/app
+        - ./categoriesservice/:/usr/src/app
         - /usr/app/node_modules
     ports: 
         - "5002:5002"
     networks: 
         - app-network  
-  HomeService:
+  homeservice:
     build:
         context: ./HomesService
         dockerfile: Dockerfile
-    image: HomesService
+    image: homesservice
     container_name: HomesService
     command: npm start
     volumes: 
-        - ./HomesService/:/usr/app
+        - ./homesservice/:/usr/app
         - /usr/app/node_modules
     ports:
         - "5004:5004"
     networks: 
         - app-network
-  UsersServices:
+  usersservices:
     build:
         context: ./UsersServices
         dockerfile: Dockerfile
-    image: UsersServices
+    image: usersservices
     container_name: UsersServices
     command: npm start
     volumes: 
-        - ./UsersServices/:/usr/app
+        - ./usersservices/:/usr/app
         - /usr/app/node_modules
     ports:
         - "5001:5001"

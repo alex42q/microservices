@@ -1,8 +1,11 @@
-FROM node:10.16-alpine
+FROM node:latest
 
-RUN mkdir -p /usr/src/AdminService
+RUN mkdir -p /usr/src/backend
+WORKDIR /usr/src/backend
 
-WORKDIR /usr/src/AdminService
+COPY package*.json ./
+
+RUN npm install
 
 COPY . .
 

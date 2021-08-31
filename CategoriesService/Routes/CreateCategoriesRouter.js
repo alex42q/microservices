@@ -6,8 +6,7 @@ const CategoriesControllers = require("../Controllers/CreateCategories");
 
 //Middlewares
 const isAdmin = require("../Middlewares/isAdmin");
-const isAuth = require("../../AdminService/Middlewares/isAuth");
-const isLoggedIn = require("../../AdminService/Middlewares/isLoggedIn")
+
 
 //Post create new category
 router.post("/api/category/create",isAdmin, CategoriesControllers.postCreateNewCategory)

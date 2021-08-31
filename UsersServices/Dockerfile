@@ -1,8 +1,12 @@
-FROM node:10.16-alpine
+FROM node:latest
 
 RUN mkdir -p /usr/src/UserServices
 
 WORKDIR /usr/src/UserServices
+
+COPY package*.json ./
+
+RUN npm install
 
 COPY . .
 
